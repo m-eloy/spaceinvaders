@@ -9,6 +9,7 @@ public class Position {
 		this.y = y;
 	}
 
+	
 	public int abscisse() {
 		return this.x;
 	}
@@ -17,6 +18,7 @@ public class Position {
 		return this.y;
 	}
 
+	
 	public void changerAbscisse(int nouvelleAbscisse) {
 		this.x = nouvelleAbscisse;
 	}
