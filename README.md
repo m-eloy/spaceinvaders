@@ -8,6 +8,7 @@
 
 <b>Missile :</b> projectile envoyé à la verticale par le vaisseau vers l'envahisseur dans le but de le détruire.
 
+<b>Personnage :</b> Etre fictif et virtuel, contrôlé ou non par le joueur, qui apparaît dans un jeu vidéo.
 
 
 <u>Contrôles : </u>
