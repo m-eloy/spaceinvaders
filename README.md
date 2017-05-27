@@ -8,7 +8,9 @@
 
 <b>Missile :</b> projectile envoyé à la verticale par le vaisseau vers l'envahisseur dans le but de le détruire.
 
+<b>Personnage :</b> Etre fictif et virtuel, contrôlé ou non par le joueur, qui apparaît dans un jeu vidéo.
 
+<b>sprite (ou lutin) :</b> Terme utilisé pour désigner un élément graphique qui peut se déplacer sur l'écran (...) Le fond de l'écran constitue généralement le décor et les sprites sont les personnages et les objets qui se superposent au fond d'écran et qui se déplacent. (Extrait de la rubrique Sprite de Wikipedia).
 
 <u>Contrôles : </u>
 
