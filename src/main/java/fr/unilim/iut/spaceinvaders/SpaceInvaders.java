@@ -1,4 +1,4 @@
-//Sprint 4
+
 package fr.unilim.iut.spaceinvaders;
 
 import fr.unilim.iut.spaceinvaders.moteurjeu.Commande;
