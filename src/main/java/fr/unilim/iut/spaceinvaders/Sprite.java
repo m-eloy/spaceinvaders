@@ -60,6 +60,14 @@ public abstract class Sprite {
 		this.origine.changerOrdonnee(y);
 	}
 
+	public int abscisse() {
+		return this.origine.abscisse();
+	}
+
+	public int ordonnee() {
+		return this.origine.ordonnee();
+	}
+	
 	public int hauteur() {
 		return this.dimension.hauteur();
 	}

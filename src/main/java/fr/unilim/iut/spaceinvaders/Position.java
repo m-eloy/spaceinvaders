@@ -8,7 +8,6 @@ public class Position {
 		this.x = x;
 		this.y = y;
 	}
-
 	
 	public int abscisse() {
 		return this.x;
