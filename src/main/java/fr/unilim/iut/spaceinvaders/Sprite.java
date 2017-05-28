@@ -22,18 +22,18 @@ public abstract class Sprite {
 	}
 
 	private boolean estOrdonneeCouverte(int y) {
-		return (ordonneeLaPlusBasse() <= y) && (y <= ordonneeLaPlusHaute());
+		return (ordonneeLaPlusHaute() <= y) && (y <= ordonneeLaPlusBasse());
 	}
 
 	private boolean estAbscisseCouverte(int x) {
 		return (abscisseLaPlusAGauche() <= x) && (x <= abscisseLaPlusADroite());
 	}
 
-	public int ordonneeLaPlusBasse() {
+	public int ordonneeLaPlusHaute() {
 		return this.origine.ordonnee() - this.dimension.hauteur() + 1;
 	}
 
-	public int ordonneeLaPlusHaute() {
+	public int ordonneeLaPlusBasse() {
 		return this.origine.ordonnee();
 	}
 
@@ -45,16 +45,14 @@ public abstract class Sprite {
 		return this.origine.abscisse();
 	}
 
-	public void seDeplacerVersLaDroite() {
-		this.origine.changerAbscisse(this.origine.abscisse() + vitesse);
-	
+	public void deplacerHorizontalementVers(Direction direction){
+		this.origine.changerAbscisse(this.origine.abscisse() + direction.valeur()*vitesse);
 	}
 
-	public void seDeplacerVersLaGauche() {
-		this.origine.changerAbscisse(this.origine.abscisse() - vitesse);
-	
+	public void deplacerVerticalementVers(Direction direction) {
+		this.origine.changerOrdonnee(this.origine.ordonnee() + direction.valeur()*vitesse);
 	}
-
+	
 	public void positionner(int x, int y) {
 		this.origine.changerAbscisse(x);
 		this.origine.changerOrdonnee(y);
@@ -76,4 +74,15 @@ public abstract class Sprite {
 		return this.dimension.longueur();
 	}
 
+	public void changerDimension(Dimension dimension) {
+		this.dimension = dimension;
+	}
+	
+	public void changerPosition(Position origine) {
+		this.origine = origine;
+	}
+	
+	public void changerVitesse(int vitesse) {
+		this.vitesse = vitesse;
+	}
 }
