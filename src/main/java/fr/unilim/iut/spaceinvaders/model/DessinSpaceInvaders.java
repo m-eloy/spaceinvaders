@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import fr.unilim.iut.spaceinvaders.moteurjeu.DessinJeu;
 
 public class DessinSpaceInvaders implements DessinJeu {
-
+	
 	SpaceInvaders spaceInvaders;
 
 	public DessinSpaceInvaders(SpaceInvaders spaceInvaders) {
@@ -17,20 +17,28 @@ public class DessinSpaceInvaders implements DessinJeu {
 	public void dessiner(BufferedImage image) {
 		Graphics2D g = (Graphics2D) image.getGraphics();
 		
-		int positionVaisseauX = spaceInvaders.recupererVaisseau().abscisse();
-		int positionVaisseauY = spaceInvaders.recupererVaisseau().ordonnee() - Constante.VAISSEAU.hauteur();
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, Constante.ECRAN.longueur(), Constante.ECRAN.hauteur());
 		
-		g.setColor(Color.GRAY);
+		int positionVaisseauX = spaceInvaders.getVaisseau().abscisse();
+		int positionVaisseauY = spaceInvaders.getVaisseau().ordonnee() - Constante.VAISSEAU.hauteur();
+		
+		g.setColor(Color.BLUE);
 		g.fillRect(positionVaisseauX, positionVaisseauY, Constante.VAISSEAU.longueur(), Constante.VAISSEAU.hauteur());
-
+		
+		int positionEnvahisseurX = spaceInvaders.getEnvahisseur().abscisse();
+		int positionEnvahisseurY = spaceInvaders.getEnvahisseur().ordonnee() - Constante.ENVAHISSEUR.hauteur();
+		
+		g.setColor(Color.RED);
+		g.fillRect(positionEnvahisseurX, positionEnvahisseurY, Constante.ENVAHISSEUR.longueur(), Constante.ENVAHISSEUR.hauteur());
+		
 		
 		if(spaceInvaders.aUnMissile()) {
-			int positionMissileX = spaceInvaders.recupererMissile().abscisse();
-			int positionMissileY = spaceInvaders.recupererMissile().ordonnee() - Constante.MISSILE.hauteur();
+			int positionMissileX = spaceInvaders.getMissile().abscisse();
+			int positionMissileY = spaceInvaders.getMissile().ordonnee() - Constante.MISSILE.hauteur();
 			
-			g.setColor(Color.BLUE);
+			g.setColor(Color.PINK);
 			g.fillRect(positionMissileX, positionMissileY, Constante.MISSILE.longueur(), Constante.MISSILE.hauteur());
 		}
 	}
-
 }

@@ -1,7 +1,7 @@
 package fr.unilim.iut.spaceinvaders.model;
 
 public abstract class Sprite {
-
+	
 	protected Position origine;
 	protected Dimension dimension;
 	protected int vitesse;
@@ -17,6 +17,11 @@ public abstract class Sprite {
 		super();
 	}
 
+	public void positionner(int x, int y) {
+		origine.changerAbscisse(x);
+		origine.changerOrdonnee(y);
+	}
+
 	public boolean occupeLaPosition(int x, int y) {
 		return estAbscisseCouverte(x) && estOrdonneeCouverte(y);
 	}
@@ -25,37 +30,32 @@ public abstract class Sprite {
 		return (ordonneeLaPlusHaute() <= y) && (y <= ordonneeLaPlusBasse());
 	}
 
+	public int ordonneeLaPlusBasse() {
+		return this.ordonnee();
+	}
+
+	public int ordonneeLaPlusHaute() {
+		return ordonneeLaPlusBasse() - this.dimension.hauteur() + 1;
+	}
+
 	private boolean estAbscisseCouverte(int x) {
 		return (abscisseLaPlusAGauche() <= x) && (x <= abscisseLaPlusADroite());
 	}
 
-	public int ordonneeLaPlusHaute() {
-		return this.origine.ordonnee() - this.dimension.hauteur() + 1;
-	}
-
-	public int ordonneeLaPlusBasse() {
-		return this.origine.ordonnee();
-	}
-
 	public int abscisseLaPlusADroite() {
-		return this.origine.abscisse() + this.dimension.longueur() - 1;
+		return this.abscisse() + this.dimension.longueur() - 1;
 	}
 
 	public int abscisseLaPlusAGauche() {
-		return this.origine.abscisse();
-	}
-
-	public void deplacerHorizontalementVers(Direction direction){
-		this.origine.changerAbscisse(this.origine.abscisse() + direction.valeur()*vitesse);
-	}
-
-	public void deplacerVerticalementVers(Direction direction) {
-		this.origine.changerOrdonnee(this.origine.ordonnee() + direction.valeur()*vitesse);
+		return this.abscisse();
 	}
 	
-	public void positionner(int x, int y) {
-		this.origine.changerAbscisse(x);
-		this.origine.changerOrdonnee(y);
+	public void deplacerVerticalementVers(Direction direction) {
+		this.origine.changerOrdonnee(this.origine.ordonnee() + direction.valeur() * vitesse);
+	}
+	
+	public void deplacerHorizontalementVers(Direction direction) {
+		this.origine.changerAbscisse(this.origine.abscisse() + direction.valeur() * vitesse);
 	}
 
 	public int abscisse() {
@@ -65,13 +65,13 @@ public abstract class Sprite {
 	public int ordonnee() {
 		return this.origine.ordonnee();
 	}
-	
-	public int hauteur() {
-		return this.dimension.hauteur();
-	}
 
 	public int longueur() {
 		return this.dimension.longueur();
+	}
+
+	public int hauteur() {
+		return this.dimension.hauteur();
 	}
 
 	public void changerDimension(Dimension dimension) {
@@ -85,4 +85,5 @@ public abstract class Sprite {
 	public void changerVitesse(int vitesse) {
 		this.vitesse = vitesse;
 	}
+
 }

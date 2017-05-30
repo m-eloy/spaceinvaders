@@ -1,28 +1,29 @@
 package fr.unilim.iut.spaceinvaders.model;
 
 public class Position {
-	int x;
-	int y;
 
+	private int x;
+	private int y;
+	
 	public Position(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
-	
+
 	public int abscisse() {
-		return this.x;
+		return x;
 	}
 
 	public int ordonnee() {
-		return this.y;
+		return y;
 	}
-
 	
-	public void changerAbscisse(int nouvelleAbscisse) {
-		this.x = nouvelleAbscisse;
+	public void changerAbscisse(int abscisse) {
+		this.x = abscisse;
+	}
+	
+	public void changerOrdonnee(int ordonnee) {
+		this.y = ordonnee;
 	}
 
-	public void changerOrdonnee(int nouvelleOrdonnee) {
-		this.y = nouvelleOrdonnee;
-	}
 }

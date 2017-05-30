@@ -40,12 +40,11 @@ public class Controleur implements KeyListener {
 			this.commandeARetourner.bas = true;
 			break;
 		case KeyEvent.VK_SPACE:
-			this.commandeEnCours.tir = true;
-			this.commandeARetourner.tir = true;
-			break;
-		default:
+			this.commandeEnCours.espace = true;
+			this.commandeARetourner.espace = true;
 			break;
 		}
+
 	}
 
 	public void keyReleased(KeyEvent e) {
@@ -63,11 +62,10 @@ public class Controleur implements KeyListener {
 			this.commandeEnCours.bas = false;
 			break;
 		case KeyEvent.VK_SPACE:
-			this.commandeEnCours.tir = false;
-			break;
-		default:
+			this.commandeEnCours.espace = false;
 			break;
 		}
+
 	}
 
 	/**
